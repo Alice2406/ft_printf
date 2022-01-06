@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_char.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/06 19:03:42 by aniezgod          #+#    #+#             */
+/*   Updated: 2022/01/06 21:49:56 by aniezgod         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "ft_printf.h"
 
-void ft_char(char formatpoint, va_list ap)
+void ft_char(char formatpoint, va_list ap, int *n)
 {
     char c;
     char *str;
@@ -7,13 +19,13 @@ void ft_char(char formatpoint, va_list ap)
     if (formatpoint == 'c')
     {
         c = (char)va_arg(ap, char);
-        ft_putchar(c);
+        ft_putchar(c, n);
     }
     else if (formatpoint == 's')
     {
         str = (char *)va_arg(ap, char *);
-        ft_putstr(str);
+        n = ft_putstr(str, n);
     }
     else if (formatpoint == '%')
-        ft_putchar('%');
+        ft_putchar('%', n);
 }
