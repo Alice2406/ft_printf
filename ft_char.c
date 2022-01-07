@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 19:03:42 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/06 21:49:56 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/01/07 11:52:27 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -18,13 +18,13 @@ void ft_char(char formatpoint, va_list ap, int *n)
 
     if (formatpoint == 'c')
     {
-        c = (char)va_arg(ap, char);
+        c = (char)va_arg(ap, int);
         ft_putchar(c, n);
     }
     else if (formatpoint == 's')
     {
         str = (char *)va_arg(ap, char *);
-        n = ft_putstr(str, n);
+        ft_putstr(str, n);
     }
     else if (formatpoint == '%')
         ft_putchar('%', n);
