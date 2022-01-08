@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_char.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_address.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 19:03:42 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/08 15:30:46 by aniezgod         ###   ########.fr       */
+/*   Created: 2022/01/08 15:47:07 by aniezgod          #+#    #+#             */
+/*   Updated: 2022/01/08 15:50:28 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-void ft_char(char formatpoint, va_list ap, int *n)
+void	ft_putnbr_address(unsigned long nbr, char *base, int *n)
 {
-    char c;
-    char *str;
+	unsigned int size;
 
-    if (formatpoint == 'c')
-    {
-        c = (char)va_arg(ap, int);
-        ft_putchar(c, n);
-    }
-    else if (formatpoint == 's')
-    {
-        str = (char *)va_arg(ap, char *);
-		if (!str)
-			ft_putstr("(null)", n);
-		else
-			 ft_putstr(str, n);
-    }
-    else if (formatpoint == '%')
-        ft_putchar('%', n);
+	size = ft_strlen(base);
+	if(nbr > size)
+	{
+		ft_putnbr_address(nbr / size, base, n);
+		ft_putnbr_address(nbr % size, base, n);
+	}
+	else
+		ft_putchar(base[nbr], n);
 }

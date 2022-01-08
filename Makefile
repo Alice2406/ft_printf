@@ -3,7 +3,8 @@ SRCS =	./ft_printf.c \
 		./ft_baseten.c \
 		./ft_char.c \
 		./ft_needchar.c \
-		./ft_putnbr_base.c
+		./ft_putnbr_base.c \
+		./ft_putnbr_address.c \
 
 OBJS = ${SRCS:.c=.o}
 
