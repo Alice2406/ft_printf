@@ -6,17 +6,17 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:33:45 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/01/08 16:11:11 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/01/08 16:48:03 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int ft_printf(const char *format,...)
+int	ft_printf(const char *format, ...)
 {
-	va_list ap;
-	va_start (ap, format);
-	int n;
+	va_list	ap;
+	int		n;
 
+	va_start (ap, format);
 	n = 0;
 	if (!format)
 		return (-1);
